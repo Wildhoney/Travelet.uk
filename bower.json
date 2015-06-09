@@ -8,7 +8,14 @@
   "description": "Flyaway for the weekend with an easy-to-use short-haul destination finder.",
   "main": "public/index.html",
   "keywords": [
-    "travel"
+    "travel",
+    "destinations",
+    "holiday.",
+    "short-weekend",
+    "short-break",
+    "weekender",
+    "flights",
+    "trains"
   ],
   "license": "MIT",
   "ignore": [
