@@ -12,3 +12,14 @@ before_script:
 script:
   - npm i
   - bower i
+
+deploy:
+  provider: heroku
+  strategy: api
+  all_branches: true
+  skip_cleanup: true
+  api_key:
+    secure: gsmUbVASz4dE5BTd/wovKpS6UOxNgo98deYs+UNdvezzYOZnRnHJYg7FtIg/Z3ka1MnL/r47sTPidx7kvCnv4kphK+HCRXIzQwaSQwXdlBc34c8iHAxrcSoZ7dLMQTfvsxFV1ddjpex9BjXdSbqLS8TTkyWj9C0aPr8ieKqF9yOjel2ZDnwyrmWfHLMDGjkrxU5DBCGKr0P00zFADkBC+PQjaiACmbH2El21w4mkanAuOUCG+3rMaocvN660xoQZ75Ert7envdsqmUtpakQvqu+evIf7SNIvRSyxnnGYgr6XdHGq4kGWRxTmI091O3cpMpeDPueE0EK3hf2x2S6f4Ww5zRqPND1vl8hiDQmCC3WZX7B4waMahpqHqr9y7+3YhOipcdHlGZQss4gokKWr8FumcdmSliQkt/pwep8RVr1pHPUj468WWq2i3GUQJzDip1sD8R8IfKC58/+BWcIn2WEl6OPolKH/8/jUogg9IPPzDsSiDHNlnFZ26FFezLd4kHKoiFhqV+NvB+nLT/ZOxheBUzvrqqw2eq+Rht571koOkDNs5iwyx/1hRm0djBC0dCh2KS4gBcPfDNC/RNRij++M5je2gyxlQDn9amtry7OsWTnWNlc/V8f+Rdi6Inyeph1DyRmpRksGcdnP73hwdoqR305DJMZ2KRnl8Ylx2bA=
+  app: travelet
+  on:
+    repo: Wildhoney/Travelet.uk
