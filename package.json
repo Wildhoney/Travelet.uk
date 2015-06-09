@@ -37,6 +37,7 @@
     "pad": "^0.1.0"
   },
   "devDependencies": {
-    "bower": "^1.4.1"
+    "bower": "^1.4.1",
+    "gulp": "^3.9.0"
   }
 }
