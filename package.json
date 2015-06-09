@@ -4,11 +4,15 @@
   "description": "Flyaway for the weekend with an easy-to-use short-haul destination finder.",
   "main": "public/index.html",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "start": "node ./public/server/default.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Wildhoney/Travelet.uk.git"
+  },
+  "engines": {
+    "iojs": "2.0.x"
   },
   "keywords": [
     "travel",
@@ -27,6 +31,12 @@
   },
   "homepage": "https://github.com/Wildhoney/Travelet.uk#readme",
   "dependencies": {
-    "hapi": "^8.6.1"
+    "cli-color": "^1.0.0",
+    "express": "^4.12.4",
+    "hapi": "^8.6.1",
+    "pad": "^0.1.0"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1"
   }
 }
