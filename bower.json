@@ -1,0 +1,21 @@
+{
+  "name": "travelet",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Wildhoney/Travelet.uk",
+  "authors": [
+    "Adam Timberlake <adam.timberlake@gmail.com>"
+  ],
+  "description": "Flyaway for the weekend with an easy-to-use short-haul destination finder.",
+  "main": "public/index.html",
+  "keywords": [
+    "travel"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
