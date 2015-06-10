@@ -31,10 +31,12 @@
   },
   "homepage": "https://github.com/Wildhoney/Travelet.uk#readme",
   "dependencies": {
+    "alt": "^0.16.10",
     "cli-color": "^1.0.0",
     "express": "^4.12.4",
     "hapi": "^8.6.1",
-    "pad": "^0.1.0"
+    "pad": "^0.1.0",
+    "react": "^0.13.3"
   },
   "devDependencies": {
     "babelify": "^6.1.2",

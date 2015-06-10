@@ -14,8 +14,12 @@ script:
   - bower i
   - gulp test
   - gulp release
+
 deploy:
   provider: heroku
+  strategy: api
+  all_branches: true
+  skip_cleanup: true
   api_key:
     secure: jLRAKnXeAPMJXvAcKf4qO2ay+qz3Zzl3wa/2FaBgZgrK7fUUfiOb90UP4zUkw2sF4JwZ1o4CWhB/fHV5eLrOq8D2O0gHUNRHIAPv2neG5Pj4fmw9O0ZvPwTYdXWTzrzLUGT6XTHUGgHdgHHQK/gghGVUnaXf0vPBAqQaXIlXEcRmAdIE9jnK/5iDX9ifRhdvhRvaYGAFJUFpW3/uN2LFd5r7QUpuCqJ8us0u5JODlyorZlNC7dHt6Ltl91Ra2Wqb5OI9dtHAWzX7pyRWqWwcLKJpv6LtGhi3BudwNGtQpTeGnm3uGVZKXEW3xFEjAb8Mfahoxcf/PhLbWKVytLbXqjs+B+Nl2S3QxYb7SvCwdyhHSwXwGI13vDu6b3fUlKgk+3Br3rVUNJdPzL+HF+2Lu2rttjzAbOKDhXumMzg182062pH8vWaiXqhcQK1buDlW5YTi3jNBiKUl+Cr/tpM+2MgsqYN7Sw0Ap4JNMtnQVoAz14ETb70UwT8AJgmk4ycdNsi1F7gm45IXAFZ+A7vL0D8CBZq5rV7IWx3NxqX3JXyBgS7Y8XuGxWZ+FmoR4AICL7fSl/o+H9ld5o5WBRXUMNZdhm+IABT2kB3QH8/EDz24N+FMiG/x5eMdO/y0p2axgGn+/XmFqF09qMDP4740xYG2RT5CGDuosoHKE1BzrGQ=
   app: travelet

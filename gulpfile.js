@@ -5,6 +5,8 @@
     var sass         = require('gulp-sass'),
         rename       = require('gulp-rename'),
         cssmin       = require('gulp-cssmin'),
+        concat       = require('gulp-concat'),
+        uglify       = require('gulp-uglify'),
         jshint       = require('gulp-jshint'),
         processhtml  = require('gulp-processhtml'),
         autoprefixer = require('gulp-autoprefixer'),
@@ -33,6 +35,16 @@
                     .pipe(fs.createWriteStream(destination));
 
     };
+
+    gulp.task('js', ['compile'], function() {
+
+        return gulp.src([cfg.gulp.js.build].concat(cfg.gulp.polyfills))
+                   .pipe(concat('all.js'))
+                   .pipe(uglify())
+                   .pipe(rename(path.basename(cfg.gulp.js.build)))
+                   .pipe(gulp.dest(path.dirname(cfg.gulp.js.build)));
+
+    });
 
     gulp.task('compile', function() {
         return compile(cfg.gulp.js.entry, cfg.gulp.js.build);
@@ -79,9 +91,9 @@
         return gulp.watch(cfg.gulp.sass.all, ['sass']);
     });
 
-    gulp.task('build',   ['default']);
-    gulp.task('test',   ['lint']);
-    gulp.task('release', ['build', 'html']);
-    gulp.task('default', ['compile', 'sass']);
+    gulp.task('build',   ['compile', 'js', 'sass']);
+    gulp.task('test',    ['lint']);
+    gulp.task('release', ['default', 'html']);
+    gulp.task('default', ['test', 'build']);
 
 })(require('gulp'));
