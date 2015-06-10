@@ -12,6 +12,8 @@ before_script:
 script:
   - npm i
   - bower i
+  - gulp test
+  - gulp release
 
 deploy:
   provider: heroku

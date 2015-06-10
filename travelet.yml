@@ -16,7 +16,7 @@ gulp:
 
   html:
     entry: public/index.html
-    build: public/build.html
+    build: public/index.html
 
   polyfills:
     - public/react/react.js

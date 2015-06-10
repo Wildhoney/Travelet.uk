@@ -70,6 +70,8 @@
         return gulp.watch(cfg.gulp.sass.all, ['sass']);
     });
 
-    gulp.task('default', ['compile', 'sass', 'html']);
+    gulp.task('build', ['default']);
+    gulp.task('release', ['build', 'html']);
+    gulp.task('default', ['compile', 'sass']);
 
 })(require('gulp'));
