@@ -5,6 +5,7 @@
     var sass         = require('gulp-sass'),
         rename       = require('gulp-rename'),
         cssmin       = require('gulp-cssmin'),
+        processhtml  = require('gulp-processhtml'),
         autoprefixer = require('gulp-autoprefixer');
 
     var fs         = require('fs'),
@@ -23,11 +24,11 @@
     var compile = function(entry, destination) {
 
         return browserify({ debug: true })
-            .transform(babelify)
-            .require(entry, { entry: true })
-            .bundle()
-            .on('error', function (model) { console.error(['Error:', model.message].join(' ')); })
-            .pipe(fs.createWriteStream(destination));
+                    .transform(babelify)
+                    .require(entry, { entry: true })
+                    .bundle()
+                    .on('error', function (model) { console.error(['Error:', model.message].join(' ')); })
+                    .pipe(fs.createWriteStream(destination));
 
     };
 
@@ -38,14 +39,23 @@
     gulp.task('sass', function() {
 
         return gulp.src(cfg.gulp.sass.all)
-            .pipe(sass().on('error', sass.logError))
-            .pipe(cssmin())
-            .pipe(autoprefixer({
-                browsers: ['last 2 versions'],
-                cascade: false
-            }))
-            .pipe(rename(path.basename(cfg.gulp.sass.build)))
-            .pipe(gulp.dest(path.dirname(cfg.gulp.sass.build)));
+                   .pipe(sass().on('error', sass.logError))
+                   .pipe(cssmin())
+                   .pipe(autoprefixer({
+                       browsers: ['last 2 versions'],
+                       cascade: false
+                   }))
+                   .pipe(rename(path.basename(cfg.gulp.sass.build)))
+                   .pipe(gulp.dest(path.dirname(cfg.gulp.sass.build)));
+
+    });
+
+    gulp.task('html', function () {
+
+        return gulp.src(cfg.gulp.html.entry)
+                   .pipe(processhtml({}))
+                   .pipe(rename(path.basename(cfg.gulp.html.build)))
+                   .pipe(gulp.dest(path.dirname(cfg.gulp.html.build)));
 
     });
 
@@ -53,6 +63,6 @@
         return gulp.watch(cfg.gulp.sass.all, ['sass']);
     });
 
-    gulp.task('default', ['compile', 'sass']);
+    gulp.task('default', ['compile', 'sass', 'html']);
 
 })(require('gulp'));

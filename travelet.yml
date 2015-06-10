@@ -14,6 +14,10 @@ gulp:
     entry: public/js/app/alt.js
     build: public/js/travelet.min.js
 
+  html:
+    entry: public/index.html
+    build: public/build.html
+
   polyfills:
     - public/react/react.js
     - public/vendor/alt/dist/alt.js
