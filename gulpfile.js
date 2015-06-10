@@ -5,6 +5,7 @@
     var sass         = require('gulp-sass'),
         rename       = require('gulp-rename'),
         cssmin       = require('gulp-cssmin'),
+        jshint       = require('gulp-jshint'),
         processhtml  = require('gulp-processhtml'),
         autoprefixer = require('gulp-autoprefixer'),
         htmlmin      = require('gulp-minify-html');
@@ -66,11 +67,20 @@
 
     });
 
+    gulp.task('lint', function() {
+
+        return gulp.src(cfg.gulp.js.all)
+            .pipe(jshint())
+            .pipe(jshint.reporter(require('jshint-stylish')));
+
+    });
+
     gulp.task('watch', function () {
         return gulp.watch(cfg.gulp.sass.all, ['sass']);
     });
 
-    gulp.task('build', ['default']);
+    gulp.task('build',   ['default']);
+    gulp.task('test',   ['lint']);
     gulp.task('release', ['build', 'html']);
     gulp.task('default', ['compile', 'sass']);
 
