@@ -11,3 +11,4 @@ public/vendor/*
 
 # Assets
 public/css
+public/js/*.min.js

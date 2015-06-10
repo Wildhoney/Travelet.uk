@@ -8,10 +8,11 @@ gulp:
 
   js:
     all:
-      - public/js/*.js
-      - public/js/**/*.js
-      - public/js/**/*.jsx
-    build: public/js/travlet.min.js
+      - public/js/app/*.js
+      - public/js/app/**/*.js
+      - public/js/app/**/*.jsx
+    entry: public/js/app/alt.js
+    build: public/js/travelet.min.js
 
   polyfills:
     - public/react/react.js

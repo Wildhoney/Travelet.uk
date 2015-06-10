@@ -7,12 +7,35 @@
         cssmin       = require('gulp-cssmin'),
         autoprefixer = require('gulp-autoprefixer');
 
-    var fs   = require('fs'),
-        path = require('path'),
-        yaml = require('js-yaml'),
-        cfg  = yaml.safeLoad(fs.readFileSync('travelet.yml', 'utf8'));
+    var fs         = require('fs'),
+        path       = require('path'),
+        yaml       = require('js-yaml'),
+        babelify   = require('babelify'),
+        browserify = require('browserify'),
+        cfg        = yaml.safeLoad(fs.readFileSync('travelet.yml', 'utf8'));
 
-    gulp.task('sass', function () {
+    /**
+     * @method compile
+     * @param {String} entry
+     * @param {String} destination
+     * @return Object
+     */
+    var compile = function(entry, destination) {
+
+        return browserify({ debug: true })
+            .transform(babelify)
+            .require(entry, { entry: true })
+            .bundle()
+            .on('error', function (model) { console.error(['Error:', model.message].join(' ')); })
+            .pipe(fs.createWriteStream(destination));
+
+    };
+
+    gulp.task('compile', function() {
+        return compile(cfg.gulp.js.entry, cfg.gulp.js.build);
+    });
+
+    gulp.task('sass', function() {
 
         return gulp.src(cfg.gulp.sass.all)
             .pipe(sass().on('error', sass.logError))
@@ -30,6 +53,6 @@
         return gulp.watch(cfg.gulp.sass.all, ['sass']);
     });
 
-    gulp.task('default', ['sass']);
+    gulp.task('default', ['compile', 'sass']);
 
 })(require('gulp'));
