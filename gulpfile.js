@@ -6,7 +6,8 @@
         rename       = require('gulp-rename'),
         cssmin       = require('gulp-cssmin'),
         processhtml  = require('gulp-processhtml'),
-        autoprefixer = require('gulp-autoprefixer');
+        autoprefixer = require('gulp-autoprefixer'),
+        htmlmin      = require('gulp-minify-html');
 
     var fs         = require('fs'),
         path       = require('path'),
@@ -52,8 +53,14 @@
 
     gulp.task('html', function () {
 
+        var htmlOptions = {
+            conditionals: true,
+            spare:true
+        };
+
         return gulp.src(cfg.gulp.html.entry)
                    .pipe(processhtml({}))
+                   .pipe(htmlmin(htmlOptions))
                    .pipe(rename(path.basename(cfg.gulp.html.build)))
                    .pipe(gulp.dest(path.dirname(cfg.gulp.html.build)));
 

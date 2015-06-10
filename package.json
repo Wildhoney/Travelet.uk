@@ -43,6 +43,7 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-cssmin": "^0.1.7",
+    "gulp-minify-html": "^1.0.3",
     "gulp-processhtml": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.1",
