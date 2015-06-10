@@ -1,0 +1,18 @@
+gulp:
+
+  sass:
+    all:
+      - public/scss/*.scss
+      - public/scss/**/*.scss
+    build: public/css/travelet.min.css
+
+  js:
+    all:
+      - public/js/*.js
+      - public/js/**/*.js
+      - public/js/**/*.jsx
+    build: public/js/travlet.min.js
+
+  polyfills:
+    - public/react/react.js
+    - public/vendor/alt/dist/alt.js

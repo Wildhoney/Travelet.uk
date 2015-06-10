@@ -38,6 +38,11 @@
   },
   "devDependencies": {
     "bower": "^1.4.1",
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.1",
+    "js-yaml": "^3.3.1"
   }
 }
