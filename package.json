@@ -44,6 +44,7 @@
     "browserify": "^10.2.4",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
+    "gulp-concat": "^2.5.2",
     "gulp-cssmin": "^0.1.7",
     "gulp-jshint": "^1.11.0",
     "gulp-minify-html": "^1.0.3",
