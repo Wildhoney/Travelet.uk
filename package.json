@@ -36,7 +36,7 @@
     "express": "^4.12.4",
     "hapi": "^8.6.1",
     "pad": "^0.1.0",
-    "react": "^0.13.3"
+    "react": "^16.13.1"
   },
   "devDependencies": {
     "babelify": "^6.1.2",
